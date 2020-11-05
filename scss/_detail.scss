@@ -1,16 +1,5 @@
-%content {
-  color: $dark-grey;
-  font-size: 16px;
-}
-
-%title {
-  font-size: 16px;
-  font-weight: 700;
-}
-
 .detail {
-  box-shadow: 5px 5px 7px 1px $soft-black;
-  color: $white;
+  @include card-shadow;
   display: flex;
   max-width: 650px;
   padding: 16px;
