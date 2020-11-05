@@ -1,0 +1,39 @@
+.book {
+  @include card-shadow;
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  padding: 32px 32px 20px 32px;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: $desktop-width;
+  }
+
+  &__cover {
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      @extend %title;
+      font-size: 20px;
+      line-height: 2;
+    }
+
+    &__author {
+      @extend %content;
+    }
+  }
+}
+
+.m-right-bottom-40 {
+  margin: 0 40px 40px 0;
+}
