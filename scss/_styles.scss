@@ -19,7 +19,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.container {
+body {
   background-color: $soft-grey;
+}
+
+.container {
+  margin-top: 150px;
   width: 100%;
 }
