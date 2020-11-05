@@ -1,11 +1,11 @@
-%title {
-  font-size: 16px;
-  font-weight: 700;
-}
-
 %content {
   color: $dark-grey;
   font-size: 16px;
+}
+
+%title {
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .detail {
@@ -19,6 +19,15 @@
   &__cover {
     display: flex;
     margin-right: 32px;
+    position: relative;
+
+    &__badge {
+      position: absolute;
+      right: -5px;
+      top: -10px;
+      transform: rotate(15deg);
+      width: 25%;
+    }
 
     &__img {
       width: 250px;
