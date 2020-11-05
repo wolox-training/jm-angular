@@ -1,0 +1,61 @@
+%title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+%content {
+  color: $dark-grey;
+  font-size: 16px;
+}
+
+.detail {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  padding: 16px;
+
+  &__cover {
+    display: flex;
+    margin-right: 32px;
+
+    &__img {
+      width: 250px;
+    }
+  }
+
+  &__info {
+    display: inline-flex;
+    flex-direction: column;
+
+    &__header {
+      align-items: center;
+      display: flex;
+      margin-bottom: 32px;
+
+      .genre {
+        @extend %content;
+        font-size: 20px;
+        font-weight: 600;
+        padding-left: 8px;
+      }
+
+      .title {
+        @extend %title;
+        font-size: 24px;
+      }
+    }
+
+    &__item {
+      padding: 12px 0;
+
+      .content {
+        @extend %content;
+        padding-left: 4px;
+      }
+
+      .title {
+        @extend %title;
+      }
+    }
+  }
+}
