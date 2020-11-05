@@ -9,10 +9,12 @@
 }
 
 .detail {
+  box-shadow: 5px 5px 7px 1px $soft-black;
+  color: $white;
   display: flex;
-  width: 100%;
-  max-width: 600px;
+  max-width: 650px;
   padding: 16px;
+  width: 100%;
 
   &__cover {
     display: flex;
@@ -29,8 +31,10 @@
 
     &__header {
       align-items: center;
+      border-bottom: 3px solid $green;
       display: flex;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
+      padding: 0 0 16px 0;
 
       .genre {
         @extend %content;
