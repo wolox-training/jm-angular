@@ -2,13 +2,13 @@
   @include card-shadow;
   display: flex;
   flex-direction: column;
-  max-width: 20%;
+  max-width: calc(25% - 40px);
   padding: 32px 32px 20px 32px;
 
   &-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin: 40px auto;
     max-width: $desktop-width;
   }
@@ -34,6 +34,6 @@
   }
 }
 
-.m-right-bottom-40 {
-  margin: 0 40px 40px 0;
+.m-bottom-40 {
+  margin-bottom: 40px;
 }
