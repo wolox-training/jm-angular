@@ -1,25 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 @import 'colors';
-
-%content {
-  color: $dark-grey;
-  font-size: 16px;
-}
-
-%title {
-  font-size: 16px;
-  font-weight: 700;
-}
-@mixin card-shadow {
-  background-color: $white;
-  box-shadow: 5px 5px 7px 1px $soft-black;
-}
-
+@import 'mixins';
 * {
   font-family: 'Roboto', sans-serif;
 }
 
 .container {
+  align-items: center;
   background-color: $soft-grey;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
