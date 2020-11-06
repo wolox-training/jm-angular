@@ -1,7 +1,41 @@
+.container {
+  &-detail {
+    height: 100vh;
+    margin-top: 0;
+    position: relative;
+
+    &__wrapper {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: $desktop-width;
+    }
+  }
+}
+
+.back-button {
+  align-self: flex-start;
+  margin: 0 0 40px 40px;
+
+  &__link {
+    font-size: 20px;
+    &::before {
+      bottom: -2px;
+      content: url('C:\\Users/Julieta/Desktop/Personal/Wolox/Codigo/Intro-Maquetado/jm-angular/assets/back-arrow-20.png');
+      padding-right: 10px;
+      position: relative;
+    }
+  }
+}
+
 .detail {
   @include card-shadow;
+  align-self: center;
   display: flex;
-  max-width: 650px;
+  max-width: 900px;
   padding: 16px;
   width: 100%;
 
@@ -26,6 +60,7 @@
   &__info {
     display: inline-flex;
     flex-direction: column;
+    width: 60%;
 
     &__header {
       align-items: center;
