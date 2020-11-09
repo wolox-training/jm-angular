@@ -18,11 +18,14 @@
   width: 100%;
 
   &::before {
+    background: url('./assets/badge.png') no-repeat;
     bottom: 50px;
-    content: url('./assets/badge.png');
+    content: '';
     left: 50px;
+    min-height: 550px;
     position: absolute;
     transform: rotate(15deg) scale(0.2);
+    width: 60%;
   }
 
   &__cover {
