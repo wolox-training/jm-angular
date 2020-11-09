@@ -13,7 +13,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 40px 0;
-    max-width: $desktop-width;
+    max-width: $xlg;
   }
 
   &__cover {
@@ -31,7 +31,6 @@
 
     &__title {
       @extend %title;
-      font-size: 20px;
       line-height: 2;
     }
   }
