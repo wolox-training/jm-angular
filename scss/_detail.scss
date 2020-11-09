@@ -23,9 +23,10 @@
   &__link {
     font-size: 20px;
     &::before {
+      background: url('./assets/back-arrow-20.png') no-repeat;
       bottom: -2px;
-      content: url('C:\\Users/Julieta/Desktop/Personal/Wolox/Codigo/Intro-Maquetado/jm-angular/assets/back-arrow-20.png');
-      padding-right: 10px;
+      content: '';
+      padding-right: 30px;
       position: relative;
     }
   }
@@ -37,24 +38,24 @@
   display: flex;
   max-width: 900px;
   padding: 16px;
+  position: relative;
   width: 100%;
 
+  &::before {
+    background: url('./assets/badge.png') no-repeat;
+    bottom: 50px;
+    content: '';
+    left: -10px;
+    min-height: 550px;
+    position: absolute;
+    transform: rotate(15deg) scale(0.2);
+    width: 60%;
+  }
+
   &__cover {
-    display: flex;
     margin-right: 32px;
-    position: relative;
-
-    &__badge {
-      position: absolute;
-      right: -5px;
-      top: -10px;
-      transform: rotate(15deg);
-      width: 25%;
-    }
-
-    &__img {
-      width: 250px;
-    }
+    max-width: 250px;
+    width: 100%;
   }
 
   &__info {
