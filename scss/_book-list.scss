@@ -11,6 +11,9 @@
     justify-content: center;
     margin: 40px 0;
     max-width: $desktop-width;
+    & > * {
+      margin: 0 40px 40px 0;
+    }
   }
 
   &__cover {
@@ -32,8 +35,4 @@
       @extend %content;
     }
   }
-}
-
-.m-right-bottom-40 {
-  margin: 0 40px 40px 0;
 }
