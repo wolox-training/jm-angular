@@ -1,6 +1,6 @@
 .nav {
   @include card-shadow;
-  border-top: 10px solid $light-blue;
+  @include light-blue-border;
   position: fixed;
   top: 0;
   width: 100%;
