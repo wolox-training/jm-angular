@@ -1,0 +1,58 @@
+%title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+%content {
+  color: $dark-grey;
+  font-size: 16px;
+}
+
+.detail {
+  display: flex;
+  max-width: 600px;
+  padding: 16px;
+  width: 100%;
+
+  &__cover {
+    margin-right: 32px;
+    max-width: 250px;
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      align-items: center;
+      display: flex;
+      margin-bottom: 32px;
+
+      .genre {
+        @extend %content;
+        font-size: 20px;
+        font-weight: 600;
+        padding-left: 8px;
+      }
+
+      .title {
+        @extend %title;
+        font-size: 24px;
+      }
+    }
+
+    &__item {
+      padding: 12px 0;
+
+      .content {
+        @extend %content;
+        padding-left: 4px;
+      }
+
+      .title {
+        @extend %title;
+      }
+    }
+  }
+}
