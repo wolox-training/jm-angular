@@ -61,16 +61,16 @@
   }
 
   &::before {
-    background: url('./assets/badge.png') top/100px no-repeat;
+    background: url('./assets/badge.png') top/$badge-width no-repeat;
     content: '';
     left: 200px;
     min-height: 100%;
     position: absolute;
     top: 0;
     transform: rotate(15deg);
-    width: 100px;
+    width: $badge-width;
     @media screen and (max-width: 1024px) {
-      background-size: calc(100px - 30%);
+      background-size: calc(#{$badge-width} - 30%);
       left: 280px;
       top: 30px;
     }
