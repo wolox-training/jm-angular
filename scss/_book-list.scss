@@ -11,6 +11,9 @@
     justify-content: space-between;
     margin: 40px 0;
     max-width: $desktop-width;
+    & > * {
+      margin-bottom: 40px;
+    }
   }
 
   &__cover {
@@ -32,8 +35,4 @@
       @extend %content;
     }
   }
-}
-
-.m-bottom-40 {
-  margin-bottom: 40px;
 }
