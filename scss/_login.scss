@@ -1,0 +1,53 @@
+.container {
+  justify-content: center;
+}
+.login {
+  @include light-blue-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+  min-height: 550px;
+  padding: 30px;
+  width: 100%;
+
+  &__logo {
+    max-width: 350px;
+    width: inherit;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+
+    &__input {
+      border-radius: $form-border-radius;
+      height: 30px;
+      margin-top: 5px;
+    }
+
+    &__label {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  &__button {
+    @include form-button(transparent, $green, $form-border-radius, $green, 20px, 40px, inherit);
+
+    &.fill {
+      background-color: $green;
+      color: $white;
+
+      &::before {
+        border-bottom: 2px solid $dark-grey;
+        bottom: -25px;
+        content: '';
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+}
