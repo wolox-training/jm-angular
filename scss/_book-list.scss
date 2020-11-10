@@ -2,10 +2,10 @@
   @include card-shadow;
   display: flex;
   flex-direction: column;
-  max-width: calc(25% - 40px);
+  max-width: calc(320px - 40px);
   padding: 32px 32px 20px 32px;
-  margin: 0 40px 40px 0;
-  &:nth-child(1) {
+  width: 100%;
+  &:nth-child(n) {
     margin: 0 40px 40px 0;
   }
 
