@@ -2,15 +2,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
-body {
-  background-color: $soft-grey;
-}
-
 .container {
   align-items: center;
   background-color: $soft-grey;
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  padding-top: 150px;
   width: 100%;
 }
