@@ -20,3 +20,9 @@
 @mixin light-blue-border {
   border-top: 10px solid $light-blue;
 }
+
+@mixin badge-position($size, $top, $left) {
+  background-size: $size;
+  left: $left;
+  top: $top;
+}
