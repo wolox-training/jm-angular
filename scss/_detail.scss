@@ -1,40 +1,28 @@
 .container {
-  &-detail {
-    height: 100vh;
-    margin-top: 0;
-    position: relative;
-
-    &__wrapper {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: center;
-      margin: 0 auto;
-      max-width: $desktop-width;
-    }
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: $desktop-width;
   }
 }
 
 .back-button {
   align-self: flex-start;
+  font-size: 20px;
   margin: 0 0 40px 40px;
 
-  &__link {
-    font-size: 20px;
-    &::before {
-      background: url('./assets/back-arrow-20.png') no-repeat;
-      bottom: -2px;
-      content: '';
-      padding-right: 30px;
-      position: relative;
-    }
+  &::before {
+    background: url('./assets/back-arrow-20.png') no-repeat;
+    bottom: -2px;
+    content: '';
+    padding-right: 30px;
+    position: relative;
   }
 }
 
 .detail {
   @include card-shadow;
-  align-self: center;
   display: flex;
   max-width: 900px;
   padding: 16px;
@@ -59,7 +47,7 @@
   }
 
   &__info {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     width: 60%;
 
