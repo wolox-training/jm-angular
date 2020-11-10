@@ -12,7 +12,8 @@
       justify-content: center;
       margin: 0 auto;
       max-width: $xlg;
-      @media screen and (max-width: $lg) {
+
+      @media screen and (max-width: $sm) {
         flex-direction: column-reverse;
       }
     }
@@ -22,23 +23,26 @@
 .back-button {
   align-self: flex-start;
   margin: 0 0 40px 40px;
-  @media screen and (max-width: $lg) {
+
+  @media screen and (max-width: $sm) {
     align-self: center;
-    margin: 40px 0 0 0;
+    margin: 20px 0 0 0;
   }
+
   &__link {
     font-size: 25px;
-    @media screen and (max-width: $lg) {
-      font-size: 35px;
+
+    @media screen and (max-width: $sm) {
+      font-size: 20px;
     }
+
     &::before {
       background: url('./assets/back-arrow-20.png') center/22px no-repeat;
       content: '';
-      padding-right: 30px;
+      padding-right: 32px;
       position: relative;
-      @media screen and (max-width: $lg) {
-        background-size: 32px;
-        padding-right: 50px;
+      @media screen and (max-width: $sm) {
+        background-size: 20px;
       }
     }
   }
@@ -47,91 +51,149 @@
 .detail {
   @include card-shadow;
   align-self: center;
-  display: flex;
+  display: grid;
+  gap: 10px 40px;
+  grid-template: 60px 1fr / 1fr 2fr;
+  grid-template-areas:
+    'cover title'
+    'cover info'
+    'cover info';
   max-width: 960px;
-  padding: 30px;
+  padding: 50px;
   position: relative;
   width: 100%;
 
   @media screen and (max-width: $lg) {
-    align-items: center;
-    flex-direction: column;
-    max-width: 600px;
-    padding: 60px;
+    column-gap: 30px;
+    grid-template-areas:
+      'title title'
+      'genre genre'
+      'cover info';
+    grid-template-rows: 1fr 1fr;
+    max-width: 85%;
+    padding: 30px;
+  }
+
+  @media screen and (max-width: $sm) {
+    grid-template: 25px 2fr 20px 1fr / 1fr;
+    grid-template-areas:
+      'title'
+      'cover'
+      'genre'
+      'info';
+    margin-top: 30px;
+    max-width: 90%;
+    padding: 16px;
+    row-gap: 20px;
   }
 
   &::before {
-    background: url('./assets/badge.png') top/$badge-width no-repeat;
+    background: url('./assets/badge.png') top no-repeat;
+    @include badge-position($badge-width, 0, 190px);
     content: '';
-    left: 200px;
     min-height: 100%;
     position: absolute;
-    top: 0;
     transform: rotate(15deg);
     width: $badge-width;
-    @media screen and (max-width: 1024px) {
-      background-size: calc(#{$badge-width} - 30%);
-      left: 280px;
-      top: 30px;
+
+    @media screen and (max-width: $lg) {
+      @include badge-position(calc(#{$badge-width} - 30%), 100px, 100px);
+    }
+
+    @media screen and (max-width: $sm) {
+      @include badge-position(calc(#{$badge-width} - 50%), 40px, 140px);
     }
   }
 
   &__cover {
-    margin-right: 50px;
+    grid-area: cover;
     max-width: 300px;
     width: 100%;
+
+    @media screen and (max-width: $sm) {
+      justify-self: center;
+      max-width: 190px;
+    }
+  }
+
+  &__genre {
+    @extend %content;
+    font-size: 30px;
+    font-weight: 600;
+    grid-area: title;
+    justify-self: center;
+    padding-left: 30px;
+
     @media screen and (max-width: $lg) {
-      margin: 0 0 40px 0;
-      max-width: 300px;
+      font-size: 25px;
+      grid-area: genre;
+      padding-left: 0;
+    }
+
+    @media screen and (max-width: $sm) {
+      font-size: 18px;
+    }
+  }
+
+  &__title {
+    @extend %title;
+    border-bottom: 4px solid $green;
+    font-size: 35px;
+    grid-area: title;
+
+    @media screen and (max-width: $lg) {
+      border: none;
+      font-size: 30px;
+      justify-self: center;
+    }
+
+    @media screen and (max-width: $sm) {
+      font-size: 25px;
     }
   }
 
   &__info {
-    display: inline-flex;
+    align-self: center;
+    display: flex;
     flex-direction: column;
+    grid-area: info;
     width: 100%;
 
-    &__header {
-      align-items: center;
-      border-bottom: 3px solid $green;
-      display: flex;
-      margin-bottom: 16px;
-      padding: 0 0 16px 0;
-
-      .genre {
-        @extend %content;
-        font-size: 25px;
-        font-weight: 600;
-        padding-left: 8px;
-        @media screen and (max-width: $lg) {
-          font-size: 30px;
-        }
-      }
-
-      .title {
-        @extend %title;
-        font-size: 30px;
-        @media screen and (max-width: $lg) {
-          font-size: 35px;
-        }
-      }
+    @media screen and (max-width: $sm) {
+      align-self: flex-start;
+      border-top: 4px solid $green;
     }
 
     &__item {
-      padding: 12px 0;
+      padding: 20px 0;
+
+      @media screen and (max-width: $lg) {
+        padding: 16px 0;
+      }
+
+      @media screen and (max-width: $sm) {
+        padding: 12px 0;
+      }
 
       .content {
         @extend %content;
         padding-left: 4px;
-        @media screen and (max-width: $lg) {
-          font-size: 25px;
-        }
       }
 
       .title {
         @extend %title;
+      }
+
+      .content,
+      .title {
+        font-size: 25px;
+
         @media screen and (max-width: $lg) {
-          font-size: 25px;
+          font-size: 20px;
+        }
+
+        @media screen and (max-width: $sm) {
+          font-size: 16px;
         }
       }
     }
