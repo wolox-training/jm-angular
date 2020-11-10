@@ -34,7 +34,6 @@
 
 .detail {
   @include card-shadow;
-  align-self: center;
   animation: fadeIn ease-in-out 0.5s;
   display: flex;
   max-width: 900px;
