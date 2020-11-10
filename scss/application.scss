@@ -1,8 +1,10 @@
 @import 'equalizer';
+@import 'colors';
 @import 'styles';
-@import 'variables';
+@import 'mixins';
 @import 'global-classes';
+@import 'variables';
 @import 'navbar';
-@import 'login';
 @import 'book-list';
 @import 'detail';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
