@@ -1,0 +1,16 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  align-items: center;
+  background-color: $soft-grey;
+  display: flex;
+  flex-direction: column;
+  padding-top: 150px;
+  width: 100%;
+
+  @media screen and (max-width: $sm) {
+    padding-top: 30px;
+  }
+}
