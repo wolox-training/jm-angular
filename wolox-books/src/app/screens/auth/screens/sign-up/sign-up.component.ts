@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import IUser from 'src/app/models/user.interface';
 import IFormItem from '../../models/form-item.interface';
 import { PasswordValidationService } from 'src/app/validators/password-validation.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,7 +23,9 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private passwordValidator: PasswordValidationService
+    private passwordValidator: PasswordValidationService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.signUpItems = [
       {
@@ -89,5 +92,6 @@ export class SignUpComponent implements OnInit {
     };
     console.log(this.user);
     this.signUpForm.reset();
+    this.router.navigate(['../auth/login'], { relativeTo: this.activatedRoute.parent });
   }
 }
