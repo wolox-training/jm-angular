@@ -3,10 +3,10 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    max-width: $xlg;
+    max-width: $desktop-width;
     width: 100%;
 
-    @media screen and (max-width: $lg) {
+    @media screen and (max-width: $mobile-width) {
       flex-direction: column-reverse;
     }
   }
@@ -17,7 +17,7 @@
   font-size: 25px;
   margin: 0 0 40px 40px;
 
-  @media screen and (max-width: $lg) {
+  @media screen and (max-width: $mobile-width) {
     align-self: center;
     font-size: 35px;
     margin: 40px 0 0 0;
@@ -28,7 +28,7 @@
     padding-right: 30px;
     position: relative;
 
-    @media screen and (max-width: $lg) {
+    @media screen and (max-width: $mobile-width) {
       background-size: 32px;
       padding-right: 50px;
     }
@@ -44,7 +44,7 @@
   position: relative;
   width: 100%;
 
-  @media screen and (max-width: $lg) {
+  @media screen and (max-width: $mobile-width) {
     align-items: center;
     flex-direction: column;
     max-width: 600px;
@@ -73,7 +73,7 @@
     max-width: 300px;
     width: 100%;
 
-    @media screen and (max-width: $lg) {
+    @media screen and (max-width: $mobile-width) {
       margin: 0 0 40px 0;
       max-width: 300px;
     }
@@ -97,7 +97,7 @@
         font-weight: 600;
         padding-left: 8px;
 
-        @media screen and (max-width: $lg) {
+        @media screen and (max-width: $mobile-width) {
           font-size: 30px;
         }
       }
@@ -106,7 +106,7 @@
         @extend %title;
         font-size: 30px;
 
-        @media screen and (max-width: $lg) {
+        @media screen and (max-width: $mobile-width) {
           font-size: 35px;
         }
       }
@@ -119,7 +119,7 @@
         @extend %content;
         padding-left: 4px;
 
-        @media screen and (max-width: $lg) {
+        @media screen and (max-width: $mobile-width) {
           font-size: 25px;
         }
       }
@@ -127,7 +127,7 @@
       .title {
         @extend %title;
 
-        @media screen and (max-width: $lg) {
+        @media screen and (max-width: $mobile-width) {
           font-size: 25px;
         }
       }
