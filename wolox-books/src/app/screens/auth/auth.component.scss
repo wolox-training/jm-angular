@@ -1,33 +1,33 @@
-@import '../../scss/application.scss';
+@import '../../../scss/_colors.scss';
+@import '../../../scss/_mixins.scss';
+@import '../../../scss/_styles.scss';
+@import '../../../scss/_variables.scss';
 
-.container {
-  justify-content: center;
-}
 .login {
   @include light-blue-border;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   max-width: 400px;
-  min-height: 550px;
   padding: 30px;
   width: 100%;
 
   &__logo {
+    margin-bottom: 40px;
     max-width: 350px;
-    width: inherit;
+    width: 100%;
   }
 
-  &__item {
+  &__group {
     display: flex;
     flex-direction: column;
-    width: inherit;
+    width: 100%;
 
     &__input {
       border-radius: $form-border-radius;
       height: 30px;
-      margin-top: 5px;
+      margin: 5px 0 20px 0;
     }
 
     &__label {
@@ -38,6 +38,7 @@
 
   &__button {
     @include form-button(transparent, $green, $form-border-radius, $green, 20px, 40px, inherit);
+    margin: 20px 0;
 
     &.fill {
       background-color: $green;

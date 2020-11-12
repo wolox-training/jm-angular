@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <!--   <head>
-    <meta charset="utf-8" />
-    <title>HTML & CSS Training</title>
-    <meta name="description" content="training" />
-    <meta name="author" content="Wolox" />
-    <link rel="stylesheet" type="text/css" href="application.css" />
-  </head> -->
-  <body>
-    <div class="container">
-      <div class="login">
-        <img src="assets/LogoWolox.png" alt="Wolox logo" class="login__logo" />
-        <div class="login__item">
-          <label for="email" class="login__item__label">Email</label>
-          <input type="text" id="email" name="email" class="login__item__input" />
-        </div>
-        <div class="login__item">
-          <label for="pwd" class="login__item__label">Password</label>
-          <input type="password" id="pwd" name="pwd" class="login__item__input" />
-        </div>
-        <a href="index.html" class="login__button fill">Login</a>
-        <a class="login__button unfill">Sign Up</a>
-      </div>
+<div class="container">
+  <form class="login">
+    <img src="./assets/LogoWolox.png" alt="Wolox logo" class="login__logo" />
+    <div class="login__group">
+      <label for="email" class="login__group__label">Email</label>
+      <input type="email" id="email" name="email" class="login__group__input" />
     </div>
-  </body>
-</html>
+    <div class="login__group">
+      <label for="pwd" class="login__group__label">Password</label>
+      <input type="password" id="pwd" name="pwd" class="login__group__input" />
+    </div>
+    <button type="submit" href="index.html" class="login__button fill">Login</button>
+    <a class="login__button unfill">Sign Up</a>
+  </form>
+</div>
