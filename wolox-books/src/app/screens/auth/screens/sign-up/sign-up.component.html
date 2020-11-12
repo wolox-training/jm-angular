@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="login">
+    <img src="assets/LogoWolox.png" alt="Wolox logo" class="login__logo" />
+    <form [formGroup]="signUpForm" class="login-form" (ngSubmit)="onSignUpSubmit()">
+      <ng-container *ngFor="let item of signUpItems">
+        <label [for]="item.id" class="login__label">{{ item.label }}</label>
+        <input
+          [formControlName]="item.id"
+          [type]="item.type"
+          [id]="item.id"
+          [name]="item.id"
+          [ngClass]="{
+            login__input: true,
+            invalid:
+              signUpForm.get(item.id).invalid && signUpForm.get(item.id).touched ? true : false
+          }"
+        />
+        <small
+          class="login__error"
+          *ngIf="signUpForm.get(item.id).invalid && signUpForm.get(item.id).touched"
+          >{{ item.error }}</small
+        >
+      </ng-container>
+      <button [disabled]="signUpForm.invalid" type="submit" class="login__button fill">
+        Sign Up
+      </button>
+      <a [routerLink]="['../login']" class="login__button unfill">Login</a>
+    </form>
+  </div>
+</div>
