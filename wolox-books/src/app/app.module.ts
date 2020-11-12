@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthComponent } from './screens/auth/auth.component';
+import { AuthModule } from './screens/auth/auth.module';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AuthModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
