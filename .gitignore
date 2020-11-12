@@ -6,5 +6,9 @@
 *.scss.map
 *.css
 
+## Angular ##
+
+.wolox-books/
+
 ## System ##
 .DS_Store
