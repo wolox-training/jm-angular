@@ -1,11 +1,14 @@
-@import '../../scss/application.scss';
+@import '../../../scss/_colors.scss';
+@import '../../../scss/_mixins.scss';
+@import '../../../scss/_styles.scss';
+@import '../../../scss/_variables.scss';
 
 .container {
-  justify-content: center;
   padding-top: 50px;
 }
 
-.login {
+.login,
+.register {
   @include light-blue-border;
   align-items: center;
   display: flex;
@@ -14,12 +17,6 @@
   max-width: 400px;
   padding: 30px;
   width: 100%;
-
-  &-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
 
   &__button {
     @include form-button(transparent, $green, $form-border-radius, $green, 20px, 40px, inherit);
@@ -43,32 +40,35 @@
     }
   }
 
-  &__error {
-    position: relative;
-    margin-bottom: 15px;
-    color: $red;
-  }
+  &__group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-  &__input {
-    border-radius: $form-border-radius;
-    height: 30px;
-    margin: 5px 0 15px 0;
-    width: inherit;
-
-    &.invalid {
-      margin-bottom: 5px;
+    &__error {
+      position: relative;
+      margin-bottom: 15px;
+      color: $red;
     }
-  }
+    &__input {
+      border-radius: $form-border-radius;
+      height: 30px;
+      margin: 5px 0 20px 0;
 
-  &__label {
-    font-size: 16px;
-    font-weight: 500;
-    width: inherit;
+      &.invalid {
+        margin-bottom: 5px;
+      }
+    }
+
+    &__label {
+      font-size: 16px;
+      font-weight: 500;
+    }
   }
 
   &__logo {
     margin-bottom: 40px;
     max-width: 350px;
-    width: inherit;
+    width: 100%;
   }
 }
