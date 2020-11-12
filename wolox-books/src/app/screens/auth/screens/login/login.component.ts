@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import IUser from 'src/app/models/user.interface';
 import IFormItem from '../../models/form-item.interface';
 import { PasswordValidationService } from 'src/app/validators/password-validation.service';
+import { LOGIN_ITEMS } from './login-constants';
 
 @Component({
   selector: 'app-login',
@@ -11,34 +12,13 @@ import { PasswordValidationService } from 'src/app/validators/password-validatio
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  loginItems: Array<IFormItem> = [
-    {
-      id: '',
-      label: '',
-      type: '',
-    },
-  ];
+  loginItems = LOGIN_ITEMS;
   user: IUser;
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private passwordValidator: PasswordValidationService
-  ) {
-    this.loginItems = [
-      {
-        error: 'El email ingresado no coincide con ninguna cuenta.',
-        id: 'email',
-        label: 'Email',
-        type: 'email',
-      },
-      {
-        error: 'La contraseña ingresada es incorrecta.',
-        id: 'password',
-        label: 'Password',
-        type: 'password',
-      },
-    ];
-  }
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
