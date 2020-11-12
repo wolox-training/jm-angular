@@ -4,6 +4,7 @@ import IUser from 'src/app/models/user.interface';
 import IFormItem from '../../models/form-item.interface';
 import { PasswordValidationService } from 'src/app/validators/password-validation.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SIGN_UP_ITEMS } from './sign-up-constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,53 +14,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   user: IUser;
-  signUpItems: Array<IFormItem> = [
-    {
-      label: '',
-      type: '',
-      id: '',
-    },
-  ];
+  signUpItems = SIGN_UP_ITEMS;
 
   constructor(
     private formBuilder: FormBuilder,
     private passwordValidator: PasswordValidationService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {
-    this.signUpItems = [
-      {
-        label: 'Nombre',
-        error: 'Ingrese su nombre.',
-        type: 'text',
-        id: 'firstName',
-      },
-      {
-        label: 'Apellido',
-        error: 'Ingrese su apellido.',
-        type: 'text',
-        id: 'lastName',
-      },
-      {
-        label: 'Email',
-        error: 'Ingrese un email valido.',
-        type: 'email',
-        id: 'email',
-      },
-      {
-        label: 'Password',
-        error: 'La contraseña debe tener al menos 8 caracteres, con una mayuscula y un numero.',
-        type: 'password',
-        id: 'password',
-      },
-      {
-        label: 'Confirmacion de Password',
-        error: 'Las contraseñas no coinciden.',
-        type: 'password',
-        id: 'confirmPassword',
-      },
-    ];
-  }
+  ) {}
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group(
       {
@@ -87,7 +49,7 @@ export class SignUpComponent implements OnInit {
       last_name: this.signUpForm.value.lastName,
       email: this.signUpForm.value.email,
       password: this.signUpForm.value.password,
-      password_confirmation: this.signUpForm.value.passwordConfirmation,
+      password_confirmation: this.signUpForm.value.password,
       locale: 'en',
     };
     console.log(this.user);
