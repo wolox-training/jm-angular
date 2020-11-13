@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import IUser from 'src/app/models/user.interface';
-import IFormItem from '../../models/form-item.interface';
+import { IFullUser } from 'src/app/models/user.interface';
 import { PasswordValidationService } from 'src/app/validators/password-validation.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 import { SIGN_UP_ITEMS } from './sign-up-constants';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss'],
+  styleUrls: ['../../auth.component.scss'],
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
-  user: IUser;
   signUpItems = SIGN_UP_ITEMS;
+  user: IFullUser;
 
   constructor(
     private formBuilder: FormBuilder,
     private passwordValidator: PasswordValidationService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
   ) {}
+
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group(
       {
@@ -52,8 +54,10 @@ export class SignUpComponent implements OnInit {
       password_confirmation: this.signUpForm.value.password,
       locale: 'en',
     };
-    console.log(this.user);
-    this.signUpForm.reset();
-    this.router.navigate(['../auth/login'], { relativeTo: this.activatedRoute.parent });
+    this.userService.createUser(this.user).subscribe(($response) => {
+      console.log('success', $response);
+      this.signUpForm.reset();
+      this.router.navigate(['../auth/login'], { relativeTo: this.activatedRoute.parent });
+    });
   }
 }
