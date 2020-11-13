@@ -1,26 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { IFullUser } from '../models/user.interface';
-import { ROOT_URL } from '../global-constants';
+import { IFullUser, ILoggedUser } from '../models/user.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  private readonly API_URI: string = `${environment.apiUri}`;
+
   constructor(private readonly http: HttpClient) {}
-  baseUrl = ROOT_URL;
-  createUser(user: IFullUser): Observable<IFullUser> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+
+  createUser(user: IFullUser): Observable<HttpResponse<ILoggedUser>> {
+    return this.http.post<ILoggedUser>(this.API_URI + '/users', user, {
+      observe: 'response',
     });
-    return this.http
-      .post<IFullUser>(this.baseUrl + '/users', user, { headers })
-      .pipe(
-        map(($response) => {
-          return $response;
-        })
-      );
   }
 }
