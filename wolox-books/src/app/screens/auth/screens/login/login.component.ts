@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    this.userService.login(this.credentials).subscribe(($response) => {
-      console.log('El access-token es:', $response.headers.get('access-token'));
+    this.userService.login(this.credentials).subscribe((accessToken) => {
+      console.log('El access-token es:', accessToken);
       this.loginForm.reset();
     });
   }
