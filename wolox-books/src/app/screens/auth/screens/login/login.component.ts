@@ -4,6 +4,7 @@ import { IEmailAndPassword } from 'src/app/models/user.interface';
 import { PasswordValidationService } from 'src/app/validators/password-validation.service';
 import { LOGIN_ITEMS } from './login-constants';
 import { UserService } from 'src/app/services/user.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,10 @@ export class LoginComponent implements OnInit {
   credentials: IEmailAndPassword;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private readonly formBuilder: FormBuilder,
     private passwordValidator: PasswordValidationService,
+    private router: Router,
     private userService: UserService
   ) {}
 
@@ -41,6 +44,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.credentials).subscribe((accessToken) => {
       console.log('El access-token es:', accessToken);
       this.loginForm.reset();
+      this.router.navigate(['/home'], { relativeTo: this.activatedRoute.parent });
     });
   }
 }
