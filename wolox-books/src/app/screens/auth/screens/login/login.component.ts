@@ -8,7 +8,7 @@ import { LOGIN_ITEMS } from './login-constants';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['../../auth.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
