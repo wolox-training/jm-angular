@@ -1,36 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, catchError, throttleTime, take } from 'rxjs/operators';
 import { IFullUser, IEmailAndPassword, ILoggedUser } from '../models/user.interface';
-import { ROOT_URL } from '../global-constants';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  baseUrl = ROOT_URL;
-  headers: HttpHeaders;
-  constructor(private readonly http: HttpClient) {
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+  private readonly API_URI: string = `${environment.apiUri}`;
+
+  constructor(private readonly http: HttpClient) {}
+
+  createUser(user: IFullUser): Observable<HttpResponse<ILoggedUser>> {
+    return this.http.post<ILoggedUser>(this.API_URI + '/users', user, {
+      observe: 'response',
     });
   }
 
-  createUser(user: IFullUser): Observable<ILoggedUser> {
-    return this.http
-      .post<ILoggedUser>(this.baseUrl + '/users', user, { headers: this.headers })
-      .pipe(
-        take(1),
-        map(($response) => {
-          return $response;
-        })
-      );
-  }
-
   login(credentials: IEmailAndPassword): Observable<HttpResponse<IEmailAndPassword>> {
-    return this.http.post<IEmailAndPassword>(this.baseUrl + '/users/sign_in', credentials, {
-      headers: this.headers,
+    return this.http.post<IEmailAndPassword>(this.API_URI + '/users/sign_in', credentials, {
       observe: 'response',
     });
   }
