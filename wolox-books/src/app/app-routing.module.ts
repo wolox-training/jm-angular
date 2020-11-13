@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
@@ -8,9 +7,11 @@ const routes: Routes = [
     loadChildren: () => import('./screens/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: '**',
-    component: AppComponent,
+    path: 'home',
+    loadChildren: () => import('./screens/home/home.module').then((m) => m.HomeModule),
   },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({
