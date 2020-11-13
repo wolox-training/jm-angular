@@ -8,8 +8,8 @@
         [type]="item.type"
         [id]="item.id"
         [name]="item.id"
+        class="login__group__input"
         [ngClass]="{
-          login__group__input: true,
           invalid: loginForm.get(item.id).invalid && loginForm.get(item.id).touched
         }"
       />
