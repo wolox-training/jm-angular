@@ -17,10 +17,10 @@ export class SignUpComponent implements OnInit {
   user: IFullUser;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private passwordValidator: PasswordValidationService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private userService: UserService
   ) {}
 
@@ -57,7 +57,7 @@ export class SignUpComponent implements OnInit {
     this.userService.createUser(this.user).subscribe((response) => {
       console.log('success', response.body);
       this.signUpForm.reset();
-      this.router.navigate(['../auth/login'], { relativeTo: this.activatedRoute.parent });
+      this.router.navigate(['/login'], { relativeTo: this.activatedRoute.parent });
     });
   }
 }
