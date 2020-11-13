@@ -8,8 +8,8 @@
         [type]="item.type"
         [id]="item.id"
         [name]="item.id"
+        class="register__group__input"
         [ngClass]="{
-          register__group__input: true,
           invalid: signUpForm.get(item.id).invalid && signUpForm.get(item.id).touched
         }"
       />
