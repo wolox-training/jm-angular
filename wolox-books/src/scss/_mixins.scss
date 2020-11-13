@@ -1,3 +1,5 @@
+@import './colors';
+
 @mixin card-shadow {
   background-color: $white;
   box-shadow: 5px 5px 7px 1px $soft-black;
