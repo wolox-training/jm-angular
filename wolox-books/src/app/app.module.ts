@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './screens/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
+import { HomeModule } from './screens/home/home.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AuthModule, HttpClientModule, AppRoutingModule],
+  declarations: [AppComponent, NavbarComponent],
+  imports: [BrowserModule, AuthModule, HomeModule, HttpClientModule, AppRoutingModule],
   providers: [UserService],
   bootstrap: [AppComponent],
 })
