@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IFullUser } from 'src/app/models/user.interface';
+import { IEmailAndPassword } from 'src/app/models/user.interface';
 import { PasswordValidationService } from 'src/app/validators/password-validation.service';
 import { LOGIN_ITEMS } from './login-constants';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,12 @@ import { LOGIN_ITEMS } from './login-constants';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginItems = LOGIN_ITEMS;
-  user: IFullUser;
+  credentials: IEmailAndPassword;
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private passwordValidator: PasswordValidationService
+    private passwordValidator: PasswordValidationService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +34,13 @@ export class LoginComponent implements OnInit {
     });
   }
   onLoginSubmit(): void {
-    console.log(this.user);
-    this.loginForm.reset();
+    this.credentials = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    };
+    this.userService.login(this.credentials).subscribe(($response) => {
+      console.log('El access-token es:', $response.headers.get('access-token'));
+      this.loginForm.reset();
+    });
   }
 }

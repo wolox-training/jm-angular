@@ -1,26 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { IFullUser } from '../models/user.interface';
+import { map, catchError, throttleTime, take } from 'rxjs/operators';
+import { IFullUser, IEmailAndPassword, ILoggedUser } from '../models/user.interface';
 import { ROOT_URL } from '../global-constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private readonly http: HttpClient) {}
   baseUrl = ROOT_URL;
-  createUser(user: IFullUser): Observable<IFullUser> {
-    const headers = new HttpHeaders({
+  headers: HttpHeaders;
+  constructor(private readonly http: HttpClient) {
+    this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
+  }
+
+  createUser(user: IFullUser): Observable<ILoggedUser> {
     return this.http
-      .post<IFullUser>(this.baseUrl + '/users', user, { headers })
+      .post<ILoggedUser>(this.baseUrl + '/users', user, { headers: this.headers })
       .pipe(
+        take(1),
         map(($response) => {
           return $response;
         })
       );
+  }
+
+  login(credentials: IEmailAndPassword): Observable<HttpResponse<IEmailAndPassword>> {
+    return this.http.post<IEmailAndPassword>(this.baseUrl + '/users/sign_in', credentials, {
+      headers: this.headers,
+      observe: 'response',
+    });
   }
 }

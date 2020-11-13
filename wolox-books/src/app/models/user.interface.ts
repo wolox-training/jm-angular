@@ -14,3 +14,8 @@ export interface ILoggedUser {
   last_name: string;
   locale: string;
 }
+
+export interface IEmailAndPassword {
+  email: string;
+  password: string;
+}
