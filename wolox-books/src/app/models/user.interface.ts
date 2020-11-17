@@ -7,7 +7,7 @@ export interface IFullUser {
   password_confirmation: string;
 }
 
-export interface ILoggedUser {
+export interface IUserCredentials {
   email: string;
   first_name: string;
   id: number;
@@ -18,4 +18,10 @@ export interface ILoggedUser {
 export interface IEmailAndPassword {
   email: string;
   password: string;
+}
+
+export interface IRequestCredentials {
+  token: string;
+  client: string;
+  uid: string;
 }
