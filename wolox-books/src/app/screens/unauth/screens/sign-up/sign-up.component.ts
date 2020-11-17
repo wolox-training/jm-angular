@@ -9,7 +9,7 @@ import { SIGN_UP_ITEMS } from './sign-up-constants';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['../../auth.component.scss'],
+  styleUrls: ['../../unauth.component.scss'],
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
