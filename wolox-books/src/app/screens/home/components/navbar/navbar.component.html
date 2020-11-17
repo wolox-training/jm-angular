@@ -1,7 +1,6 @@
 <header class="nav">
   <nav class="nav__content">
     <img src="assets/LogoWolox.png" alt="Wolox logo" class="nav__content__logo" />
-    <a [routerLink]="['/login']" class="nav__content__auth" *ngIf="!(isLoggedIn | async)">Login</a>
     <a
       [routerLink]="['/login']"
       class="nav__content__auth"

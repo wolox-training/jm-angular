@@ -7,10 +7,9 @@ import { AuthModule } from './screens/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { HomeModule } from './screens/home/home.module';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, AuthModule, HomeModule, HttpClientModule, AppRoutingModule],
   providers: [UserService],
   bootstrap: [AppComponent],
