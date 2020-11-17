@@ -10,9 +10,9 @@ import { UserService } from 'src/app/services/user.service';
 export class NavbarComponent implements OnInit {
   isLoggedIn: Observable<boolean>;
 
-  constructor(public userService: UserService) {
-    this.isLoggedIn = userService.isLoggedIn();
-  }
+  constructor(public userService: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isLoggedIn = this.userService.isLoggedIn;
+  }
 }
