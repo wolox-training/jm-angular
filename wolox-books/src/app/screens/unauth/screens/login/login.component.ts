@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../../auth.component.scss'],
+  styleUrls: ['../../unauth.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.credentials).subscribe((accessToken) => {
       console.log('El access-token es:', accessToken);
       this.loginForm.reset();
-      this.router.navigate(['/home'], { relativeTo: this.activatedRoute.parent });
+      this.router.navigate(['/books'], { relativeTo: this.activatedRoute.parent });
     });
   }
 }
