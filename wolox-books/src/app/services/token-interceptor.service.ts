@@ -14,9 +14,9 @@ export class TokenInterceptorService implements HttpInterceptor {
     const credentials: IRequestCredentials = userService.getCredentials();
     const tokenizeReq = req.clone({
       setHeaders: {
-        'access-token': `Bearer ${credentials.token}`,
-        client: credentials.client,
-        uid: credentials.uid,
+        'access-token': credentials ? `Bearer ${credentials.token}` : '',
+        client: credentials ? credentials.client : '',
+        uid: credentials ? credentials.uid : '',
       },
     });
     return next.handle(tokenizeReq);
