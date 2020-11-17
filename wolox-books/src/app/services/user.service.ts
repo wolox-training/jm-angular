@@ -10,11 +10,10 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
   private readonly API_URI: string = `${environment.apiUri}`;
-  private isLoginSubject: BehaviorSubject<boolean>;
+  private isLoginSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.hasToken());
+  public isLoggedIn: Observable<boolean> = this.isLoginSubject.asObservable();
 
-  constructor(private readonly http: HttpClient) {
-    this.isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
-  }
+  constructor(private readonly http: HttpClient) {}
 
   createUser(user: IFullUser): Observable<HttpResponse<ILoggedUser>> {
     return this.http.post<ILoggedUser>(this.API_URI + '/users', user, {
@@ -24,10 +23,6 @@ export class UserService {
 
   hasToken(): boolean {
     return !!localStorage.getItem('token');
-  }
-
-  isLoggedIn(): Observable<boolean> {
-    return this.isLoginSubject.asObservable();
   }
 
   login(credentials: IEmailAndPassword): Observable<string> {
