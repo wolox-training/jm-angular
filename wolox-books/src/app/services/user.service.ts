@@ -4,8 +4,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
   IFullUser,
-  IEmailAndPassword,
   IUserCredentials,
+  ILoggedUser,
   IRequestCredentials,
 } from '../models/user.interface';
 import { environment } from 'src/environments/environment';
@@ -20,8 +20,8 @@ export class UserService {
 
   constructor(private readonly http: HttpClient) {}
 
-  createUser(user: IFullUser): Observable<HttpResponse<IUserCredentials>> {
-    return this.http.post<IUserCredentials>(this.API_URI + '/users', user, {
+  createUser(user: IFullUser): Observable<HttpResponse<ILoggedUser>> {
+    return this.http.post<ILoggedUser>(this.API_URI + '/users', user, {
       observe: 'response',
     });
   }
@@ -34,14 +34,13 @@ export class UserService {
     return !!localStorage.getItem('credentials');
   }
 
-  login(credentials: IEmailAndPassword): Observable<string> {
+  login(credentials: IUserCredentials): Observable<string> {
     return this.http
-      .post<IEmailAndPassword>(this.API_URI + '/users/sign_in', credentials, {
+      .post<IUserCredentials>(this.API_URI + '/users/sign_in', credentials, {
         observe: 'response',
       })
       .pipe(
         map((response) => {
-          console.log(response.headers);
           const requestCredentials: IRequestCredentials = {
             token: response.headers.get('access-token'),
             client: response.headers.get('client'),
@@ -55,7 +54,7 @@ export class UserService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('credentials');
     this.updateSubject(false);
   }
 
