@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IEmailAndPassword } from 'src/app/models/user.interface';
+import { IUserCredentials } from 'src/app/models/user.interface';
 import { PasswordValidationService } from 'src/app/validators/password-validation.service';
 import { LOGIN_ITEMS } from './login-constants';
 import { UserService } from 'src/app/services/user.service';
@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginItems = LOGIN_ITEMS;
-  credentials: IEmailAndPassword;
+  credentials: IUserCredentials;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password,
     };
     this.userService.login(this.credentials).subscribe((accessToken) => {
-      console.log('El access-token es:', accessToken);
       this.loginForm.reset();
     });
   }

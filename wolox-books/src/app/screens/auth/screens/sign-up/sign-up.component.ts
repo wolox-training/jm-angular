@@ -55,7 +55,6 @@ export class SignUpComponent implements OnInit {
       locale: 'en',
     };
     this.userService.createUser(this.user).subscribe((response) => {
-      console.log('success', response.body);
       this.signUpForm.reset();
       this.router.navigate(['../auth/login'], { relativeTo: this.activatedRoute.parent });
     });
