@@ -8,7 +8,7 @@ import { IBook } from 'src/app/models/book.interface';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
 })
-export class BookListComponent implements OnInit, OnDestroy {
+export class BookListComponent implements OnInit {
   bookSubscription: Subscription;
   books: Array<IBook>;
 
@@ -18,10 +18,6 @@ export class BookListComponent implements OnInit, OnDestroy {
     this.bookSubscription = this.booksService.getBooks().subscribe((response) => {
       this.books = response.page;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.bookSubscription.unsubscribe();
   }
 
   trackBook(book: IBook): number | undefined {
