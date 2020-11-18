@@ -9,6 +9,7 @@ import {
   IRequestCredentials,
 } from '../models/user.interface';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class UserService {
   private isLoginSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.hasToken());
   public isLoggedIn: Observable<boolean> = this.isLoginSubject.asObservable();
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient, private router: Router) {}
 
   createUser(user: IFullUser): Observable<HttpResponse<ILoggedUser>> {
     return this.http.post<ILoggedUser>(this.API_URI + '/users', user, {
@@ -56,6 +57,7 @@ export class UserService {
   logout(): void {
     localStorage.removeItem('credentials');
     this.updateSubject(false);
+    this.router.navigate(['/login']);
   }
 
   updateSubject(state: boolean): void {
