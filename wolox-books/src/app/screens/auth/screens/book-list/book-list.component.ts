@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
 })
-export class BookListComponent implements OnInit, OnDestroy {
+export class BookListComponent implements OnInit {
   bookSubscription: Subscription;
   books: Array<IBook>;
   searchTitle = '';
@@ -20,10 +20,6 @@ export class BookListComponent implements OnInit, OnDestroy {
     this.bookSubscription = this.booksService.getBooks().subscribe((response) => {
       this.books = response;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.bookSubscription.unsubscribe();
   }
 
   onKey(text: string): void {
