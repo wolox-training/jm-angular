@@ -1,6 +1,31 @@
 @import '../../../../../scss/variables';
 @import '../../../../../scss/mixins';
 @import '../../../../../scss/global-classes';
+@import '../../../../../scss/colors';
+
+.search-bar {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &__input {
+    border-radius: $form-border-radius;
+    border: 2px solid $soft-grey;
+    margin: 5px 0 20px 0;
+    padding: 15px;
+    font-size: 25px;
+    width: 700px;
+  }
+
+  &__icon {
+    position: absolute;
+    width: 35px;
+    right: 30px;
+    top: 15px;
+    transition: all 0.2s ease-in-out;
+  }
+}
 
 .book {
   @include card-shadow;
@@ -14,18 +39,21 @@
   }
 
   &-link {
-    max-width: calc(320px - 40px);
+    max-width: 280px;
     width: 100%;
 
     &:nth-child(n) {
-      margin-bottom: 40px;
+      margin: 0 40px 40px 0;
+    }
+    &:nth-child(4n) {
+      margin-right: 0;
     }
   }
 
   &-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 40px 0;
     max-width: $desktop-width;
   }
