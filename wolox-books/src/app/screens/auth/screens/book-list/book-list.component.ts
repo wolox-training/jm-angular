@@ -11,6 +11,7 @@ import { IBook } from 'src/app/models/book.interface';
 export class BookListComponent implements OnInit, OnDestroy {
   bookSubscription: Subscription;
   books: Array<IBook>;
+  searchTitle = '';
 
   constructor(private booksService: BooksService) {}
 
@@ -22,6 +23,11 @@ export class BookListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.bookSubscription.unsubscribe();
+  }
+
+  onKey(text: string): void {
+    console.log(this.books);
+    this.searchTitle = text;
   }
 
   trackBook(book: IBook): number | undefined {
