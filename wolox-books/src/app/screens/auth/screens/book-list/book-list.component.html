@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div class="container">
   <div class="search-bar">
     <img
@@ -18,9 +17,9 @@
 
   <div class="book-list">
     <a
-      href="detail-book.html"
       class="book-link"
       *ngFor="let book of books | searchPipe: searchTitle; trackBy: trackBook"
+      (click)="openDetail(book.id)"
     >
       <div class="book">
         <img [src]="book.image_url" alt="book cover" class="book__cover" />
