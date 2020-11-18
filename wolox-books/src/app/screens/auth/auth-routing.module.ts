@@ -3,12 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { BookListComponent } from './screens/book-list/book-list.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { BookDetailComponent } from './screens/book-detail/book-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AuthComponent,
     children: [
+      {
+        path: 'books/:id',
+        canActivate: [AuthGuard],
+        component: BookDetailComponent,
+      },
       {
         path: 'books',
         canActivate: [AuthGuard],
