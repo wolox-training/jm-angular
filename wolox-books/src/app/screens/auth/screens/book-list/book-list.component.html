@@ -1,7 +1,27 @@
 <app-navbar></app-navbar>
 <div class="container">
+  <div class="search-bar">
+    <img
+      src="assets/search-icon.svg"
+      alt="search icon"
+      class="search-bar__icon"
+      *ngIf="!searchTitle.length"
+    />
+    <input
+      #searchBar
+      type="text"
+      class="search-bar__input"
+      placeholder="Buscar por titulo del libro..."
+      (keyup)="onKey(searchBar.value)"
+    />
+  </div>
+
   <div class="book-list">
-    <a href="detail-book.html" class="book-link" *ngFor="let book of books; trackBy: trackBook">
+    <a
+      href="detail-book.html"
+      class="book-link"
+      *ngFor="let book of books | searchPipe: searchTitle; trackBy: trackBook"
+    >
       <div class="book">
         <img [src]="book.image_url" alt="book cover" class="book__cover" />
         <div class="book__info">
