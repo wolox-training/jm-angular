@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IFullUser, IUserCredentials, ILoggedUser } from '../models/user.interface';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class UserService {
   private readonly API_URI: string = `${environment.apiUri}`;
   private isLoginSubject: BehaviorSubject<boolean> = new BehaviorSubject(this.hasToken());
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient, private router: Router) {}
 
   createUser(user: IFullUser): Observable<HttpResponse<ILoggedUser>> {
     return this.http.post<ILoggedUser>(this.API_URI + '/users', user, {
@@ -46,6 +47,7 @@ export class UserService {
   logout(): void {
     localStorage.removeItem('token');
     this.updateSubject(false);
+    this.router.navigate(['/login']);
   }
 
   updateSubject(state: boolean): void {
