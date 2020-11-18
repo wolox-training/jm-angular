@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IFullUser, IEmailAndPassword, ILoggedUser } from '../models/user.interface';
+import { IFullUser, IUserCredentials, ILoggedUser } from '../models/user.interface';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class UserService {
   private isLoginSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.hasToken());
   public isLoggedIn: Observable<boolean> = this.isLoginSubject.asObservable();
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient, private router: Router) {}
 
   createUser(user: IFullUser): Observable<HttpResponse<ILoggedUser>> {
     return this.http.post<ILoggedUser>(this.API_URI + '/users', user, {
@@ -25,9 +26,9 @@ export class UserService {
     return !!localStorage.getItem('token');
   }
 
-  login(credentials: IEmailAndPassword): Observable<string> {
+  login(credentials: IUserCredentials): Observable<string> {
     return this.http
-      .post<IEmailAndPassword>(this.API_URI + '/users/sign_in', credentials, {
+      .post<IUserCredentials>(this.API_URI + '/users/sign_in', credentials, {
         observe: 'response',
       })
       .pipe(
@@ -43,6 +44,7 @@ export class UserService {
   logout(): void {
     localStorage.removeItem('token');
     this.updateSubject(false);
+    this.router.navigate(['/login']);
   }
 
   updateSubject(state: boolean): void {
