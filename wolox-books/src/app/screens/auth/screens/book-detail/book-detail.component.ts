@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 import { IBookDetail } from 'src/app/models/book.interface';
-import { BEST_SELLERS, DETAIL } from './book-detail-constants';
+import { BEST_SELLERS } from './book-detail-constants';
 
 @Component({
   selector: 'app-book-detail',
@@ -10,7 +10,7 @@ import { BEST_SELLERS, DETAIL } from './book-detail-constants';
   styleUrls: ['./book-detail.component.scss'],
 })
 export class BookDetailComponent implements OnInit {
-  detail: IBookDetail = DETAIL;
+  detail: IBookDetail;
   bestSellers: string[] = BEST_SELLERS;
 
   constructor(private route: ActivatedRoute, private bookService: BooksService) {}
