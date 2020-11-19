@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
-import { Subscription } from 'rxjs';
 import { IBook } from 'src/app/models/book.interface';
 
 @Component({
@@ -9,20 +8,18 @@ import { IBook } from 'src/app/models/book.interface';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  bookSubscription: Subscription;
   books: Array<IBook>;
   searchTitle = '';
 
   constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {
-    this.bookSubscription = this.booksService.getBooks().subscribe((response) => {
+    this.booksService.getBooks().subscribe((response) => {
       this.books = response.page;
     });
   }
 
   onKey(text: string): void {
-    console.log(this.books);
     this.searchTitle = text;
   }
 
