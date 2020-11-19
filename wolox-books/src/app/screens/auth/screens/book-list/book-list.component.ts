@@ -3,6 +3,7 @@ import { BooksService } from 'src/app/services/books.service';
 import { Subscription } from 'rxjs';
 import { IBook } from 'src/app/models/book.interface';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-book-list',
@@ -10,20 +11,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  bookSubscription: Subscription;
   books: Array<IBook>;
   searchTitle = '';
 
-  constructor(private booksService: BooksService, private router: Router) {}
+  constructor(
+    private booksService: BooksService,
+    private router: Router,
+    private shoppingCart: ShoppingCartService
+  ) {}
 
   ngOnInit(): void {
-    this.bookSubscription = this.booksService.getBooks().subscribe((response) => {
+    this.booksService.getBooks().subscribe((response) => {
       this.books = response;
     });
   }
 
+  addToCart(book: IBook): void {
+    this.shoppingCart.addCartItem(book);
+  }
+
   onKey(text: string): void {
-    console.log(this.books);
     this.searchTitle = text;
   }
 
