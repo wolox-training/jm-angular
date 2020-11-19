@@ -1,11 +1,5 @@
 <div class="container">
   <div class="search-bar">
-    <img
-      src="assets/search-icon.svg"
-      alt="search icon"
-      class="search-bar__icon"
-      *ngIf="!searchTitle.length"
-    />
     <input
       #searchBar
       type="text"
@@ -13,6 +7,7 @@
       placeholder="Buscar por titulo del libro..."
       (keyup)="onKey(searchBar.value)"
     />
+    <img src="assets/search-icon.svg" alt="search icon" class="search-bar__icon" />
   </div>
 
   <div class="book-list">
