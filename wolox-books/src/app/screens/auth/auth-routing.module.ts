@@ -8,16 +8,15 @@ import { BookDetailComponent } from './screens/book-detail/book-detail.component
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
     component: AuthComponent,
     children: [
       {
         path: 'books/:id',
-        canActivate: [AuthGuard],
         component: BookDetailComponent,
       },
       {
         path: 'books',
-        canActivate: [AuthGuard],
         component: BookListComponent,
       },
       {
