@@ -6,6 +6,7 @@ import { BookListComponent } from './screens/book-list/book-list.component';
 import { SearchPipe } from 'src/app/pipes/search.pipe';
 import { BookDetailComponent } from './screens/book-detail/book-detail.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NavbarComponent,
     SearchPipe,
     BookDetailComponent,
+    ModalComponent,
   ],
   imports: [CommonModule, AuthRoutingModule],
 })
