@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
-import { IBook } from 'src/app/models/book.interface';
+import { IBook, IBookShoppingCart } from 'src/app/models/book.interface';
 import { Router } from '@angular/router';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import * as BooksActions from '../../../../store/books.actions';
 
 @Component({
   selector: 'app-book-list',
@@ -16,7 +18,7 @@ export class BookListComponent implements OnInit {
   constructor(
     private booksService: BooksService,
     private router: Router,
-    private shoppingCart: ShoppingCartService
+    private store: Store<AppState>
   ) {}
 
   ngOnInit(): void {
@@ -25,8 +27,13 @@ export class BookListComponent implements OnInit {
     });
   }
 
-  addToCart(book: IBook): void {
-    this.shoppingCart.addCartItem(book);
+  addToCart(title: string, author: string, id: number): void {
+    const newCartBook: IBookShoppingCart = {
+      author,
+      id,
+      title,
+    };
+    this.store.dispatch(new BooksActions.AddBook(newCartBook));
   }
 
   onKey(text: string): void {

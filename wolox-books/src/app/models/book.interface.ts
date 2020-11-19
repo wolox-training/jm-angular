@@ -20,3 +20,9 @@ export interface IBookDetail {
   title: string;
   year: string;
 }
+
+export interface IBookShoppingCart {
+  author: string;
+  id: number;
+  title: string;
+}
