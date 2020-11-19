@@ -16,17 +16,19 @@
   </div>
 
   <div class="book-list">
-    <a
-      class="book-link"
-      *ngFor="let book of books | searchPipe: searchTitle; trackBy: trackBook"
-      (click)="openDetail(book.id)"
-    >
+    <a class="book-link" *ngFor="let book of books | searchPipe: searchTitle; trackBy: trackBook">
       <div class="book">
-        <img [src]="book.image_url" alt="book cover" class="book__cover" />
-        <div class="book__info">
+        <img
+          [src]="book.image_url"
+          alt="book cover"
+          class="book__cover"
+          (click)="openDetail(book.id)"
+        />
+        <div class="book__info" (click)="openDetail(book.id)">
           <h3 class="book__info__title">{{ book.title }}</h3>
           <h4 class="book__info__author">{{ book.author }}</h4>
         </div>
+        <div class="book__plus" (click)="addToCart(book)"></div>
       </div>
     </a>
   </div>

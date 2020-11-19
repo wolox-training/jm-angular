@@ -4,26 +4,27 @@
 @import '../../../../../scss/colors';
 
 .search-bar {
-  width: fit-content;
   display: flex;
   justify-content: center;
   position: relative;
+  width: fit-content;
 
   &__input {
-    border-radius: $form-border-radius;
     border: 2px solid $soft-grey;
+    border-radius: $form-border-radius;
+    font-size: 25px;
     margin: 5px 0 20px 0;
     padding: 15px;
-    font-size: 25px;
+
     width: 700px;
   }
 
   &__icon {
     position: absolute;
-    width: 35px;
     right: 30px;
     top: 15px;
     transition: all 0.2s ease-in-out;
+    width: 35px;
   }
 }
 
@@ -31,7 +32,8 @@
   @include card-shadow;
   display: flex;
   flex-direction: column;
-  padding: 32px 32px 20px;
+  padding: 32px;
+  position: relative;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -56,6 +58,7 @@
     justify-content: flex-start;
     margin: 40px 0;
     max-width: $desktop-width;
+    width: 100%;
   }
 
   &__cover {
@@ -78,6 +81,32 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+  }
+
+  &__plus {
+    background-color: $green;
+    border-radius: 20px;
+    bottom: 10px;
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    transition: all 0.2s ease-in-out;
+    width: 40px;
+
+    &::before {
+      background: url('/assets/plus.svg') center/cover;
+      content: '';
+      height: 24px;
+      left: 8px;
+      position: absolute;
+      top: 8px;
+      width: 24px;
+    }
+
+    &:hover {
+      background-color: $light-blue;
+      transform: scale(1.1);
     }
   }
 }
