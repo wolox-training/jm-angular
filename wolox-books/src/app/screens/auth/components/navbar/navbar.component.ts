@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
+import { AppState } from 'src/app/app.state';
+import { Store } from '@ngrx/store';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
@@ -8,21 +10,24 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnInit {
   isLoggedIn: Observable<boolean>;
   cartItems: number;
-  cartItemsSubscription: Subscription;
 
-  constructor(public userService: UserService, private shoppingCart: ShoppingCartService) {}
+  constructor(
+    public userService: UserService,
+    private store: Store<AppState>,
+    private shoppingCart: ShoppingCartService
+  ) {}
 
   ngOnInit(): void {
     this.isLoggedIn = this.userService.isLoggedIn;
-    this.cartItemsSubscription = this.shoppingCart.currentCartItems.subscribe(
-      (items) => (this.cartItems = items)
-    );
+    this.store.select('books').subscribe((items) => {
+      this.cartItems = items?.length;
+    });
   }
 
-  ngOnDestroy(): void {
-    this.cartItemsSubscription.unsubscribe();
+  openModal(): void {
+    this.shoppingCart.openModal(true);
   }
 }

@@ -28,7 +28,7 @@
           <h3 class="book__info__title">{{ book.title }}</h3>
           <h4 class="book__info__author">{{ book.author }}</h4>
         </div>
-        <div class="book__plus" (click)="addToCart(book)"></div>
+        <div class="book__plus" (click)="addToCart(book.title, book.author, book.id)"></div>
       </div>
     </a>
   </div>
