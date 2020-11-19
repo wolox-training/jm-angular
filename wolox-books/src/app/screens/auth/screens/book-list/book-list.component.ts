@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
-import { Subscription } from 'rxjs';
 import { IBook } from 'src/app/models/book.interface';
 import { Router } from '@angular/router';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';

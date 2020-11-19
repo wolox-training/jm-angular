@@ -4,8 +4,10 @@
 @import '../../../../../scss/colors';
 
 .search-bar {
+  align-items: center;
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
   position: relative;
   width: fit-content;
 
@@ -13,17 +15,16 @@
     border: 2px solid $soft-grey;
     border-radius: $form-border-radius;
     font-size: 25px;
-    margin: 5px 0 20px 0;
+    height: 70px;
     padding: 15px;
-
     width: 700px;
   }
 
   &__icon {
-    position: absolute;
-    right: 30px;
-    top: 15px;
-    transition: all 0.2s ease-in-out;
+    background-color: $white;
+    height: 60px;
+    position: relative;
+    right: 50px;
     width: 35px;
   }
 }
