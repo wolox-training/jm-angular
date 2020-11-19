@@ -1,8 +1,11 @@
 <header class="nav">
   <nav class="nav__content">
     <img src="assets/LogoWolox.png" alt="Wolox logo" class="nav__content__logo" />
-    <a class="nav__content__auth" (click)="userService.logout()" *ngIf="isLoggedIn | async"
-      >Logout</a
-    >
+    <div class="nav__content__right">
+      <a class="shopping-cart">
+        <span class="shopping-cart__counter">{{ cartItems }}</span>
+      </a>
+      <a class="auth" (click)="userService.logout()" *ngIf="isLoggedIn | async">Logout</a>
+    </div>
   </nav>
 </header>
