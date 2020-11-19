@@ -8,16 +8,15 @@ import { UnAuthGuard } from 'src/app/guards/unauth.guard';
 const routes: Routes = [
   {
     path: '',
+    canActivate: [UnAuthGuard],
     component: UnAuthComponent,
     children: [
       {
         path: 'sign-up',
-        canActivate: [UnAuthGuard],
         component: SignUpComponent,
       },
       {
         path: 'login',
-        canActivate: [UnAuthGuard],
         component: LoginComponent,
       },
       {
