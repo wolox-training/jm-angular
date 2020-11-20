@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IFullUser, IUserCredentials, ILoggedUser } from '../models/user.interface';
+import {
+  IFullUser,
+  IUserCredentials,
+  ILoggedUser,
+  IRequestCredentials,
+} from '../models/user.interface';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
@@ -22,8 +27,12 @@ export class UserService {
     });
   }
 
+  getCredentials(): IRequestCredentials {
+    return JSON.parse(localStorage.getItem('credentials'));
+  }
+
   hasToken(): boolean {
-    return !!localStorage.getItem('token');
+    return !!localStorage.getItem('credentials');
   }
 
   login(credentials: IUserCredentials): Observable<string> {
@@ -33,16 +42,20 @@ export class UserService {
       })
       .pipe(
         map((response) => {
-          const accessToken = response.headers.get('access-token');
-          localStorage.setItem('token', accessToken);
+          const requestCredentials: IRequestCredentials = {
+            token: response.headers.get('access-token'),
+            client: response.headers.get('client'),
+            uid: response.headers.get('uid'),
+          };
+          localStorage.setItem('credentials', JSON.stringify(requestCredentials));
           this.updateSubject(true);
-          return accessToken;
+          return requestCredentials.token;
         })
       );
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('credentials');
     this.updateSubject(false);
     this.router.navigate(['/login']);
   }
