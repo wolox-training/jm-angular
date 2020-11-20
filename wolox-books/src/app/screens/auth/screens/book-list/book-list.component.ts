@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class BookListComponent implements OnInit {
   books: Array<IBook>;
-  searchTitle = '';
+  searchTitle: string = '';
 
   constructor(private booksService: BooksService, private router: Router) {}
 
@@ -18,14 +18,6 @@ export class BookListComponent implements OnInit {
     this.booksService.getBooks().subscribe((response) => {
       this.books = response;
     });
-  }
-
-  onKey(text: string): void {
-    this.searchTitle = text;
-  }
-
-  openDetail(id: number): void {
-    this.router.navigate(['books/' + id]);
   }
 
   trackBook(book: IBook): number | undefined {

@@ -6,6 +6,7 @@ import { BookListComponent } from './screens/book-list/book-list.component';
 import { SearchPipe } from 'src/app/pipes/search.pipe';
 import { BookDetailComponent } from './screens/book-detail/book-detail.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     SearchPipe,
     BookDetailComponent,
   ],
-  imports: [CommonModule, AuthRoutingModule],
+  imports: [CommonModule, AuthRoutingModule, FormsModule],
 })
 export class AuthModule {}
