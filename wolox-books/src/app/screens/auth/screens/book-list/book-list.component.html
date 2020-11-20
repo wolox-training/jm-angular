@@ -12,7 +12,7 @@
 
   <div class="book-list">
     <a
-      href="detail-book.html"
+      [routerLink]="['/books', book.id]"
       class="book-link"
       *ngFor="let book of books | searchPipe: searchTitle; trackBy: trackBook"
     >

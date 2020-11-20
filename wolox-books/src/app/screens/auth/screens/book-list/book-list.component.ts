@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
 import { IBook } from 'src/app/models/book.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -11,11 +12,11 @@ export class BookListComponent implements OnInit {
   books: Array<IBook>;
   searchTitle: string = '';
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private router: Router) {}
 
   ngOnInit(): void {
     this.booksService.getBooks().subscribe((response) => {
-      this.books = response.page;
+      this.books = response;
     });
   }
 

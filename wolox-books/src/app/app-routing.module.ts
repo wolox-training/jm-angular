@@ -8,13 +8,13 @@ import { UnAuthComponent } from './screens/unauth/unauth.component';
 const routes: Routes = [
   {
     path: 'auth',
-    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
     component: AuthComponent,
     loadChildren: () => import('./screens/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'unauth',
-    canActivate: [UnAuthGuard],
+    canLoad: [UnAuthGuard],
     component: UnAuthComponent,
     loadChildren: () => import('./screens/unauth/unauth.module').then((m) => m.UnAuthModule),
   },

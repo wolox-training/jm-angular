@@ -9,3 +9,14 @@ export interface IBook {
   updated_at: string;
   year: string;
 }
+
+export interface IBookDetail {
+  author: string;
+  current_rent?: boolean;
+  editor: string;
+  genre: string;
+  id: number;
+  image_url: string;
+  title: string;
+  year: string;
+}
