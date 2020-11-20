@@ -7,7 +7,7 @@ import { IBook } from '../models/book.interface';
 })
 export class ShoppingCartService {
   private cartItemsSource: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  public currentCartItems = this.cartItemsSource.asObservable();
+  public cartItems = this.cartItemsSource.asObservable();
 
   constructor() {}
 
