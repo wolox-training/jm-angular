@@ -1,21 +1,21 @@
 <div class="container">
   <div class="container__wrapper" *ngIf="detail.image_url.length">
-    <a [routerLink]="['/books']" class="back-button">Atrás</a>
+    <a [routerLink]="['/books']" class="back-button" i18n="Go back">Back</a>
     <div class="detail" [ngClass]="{ badge: isBestSeller(detail.author) }">
       <h3 class="detail__title">{{ detail.title }}</h3>
       <h4 class="detail__genre">({{ detail.genre }})</h4>
       <img [src]="detail.image_url" alt="book cover" class="detail__cover" />
       <div class="detail__info">
         <div class="detail__info__item">
-          <h4 class="title">Autor del libro:</h4>
+          <h4 class="title" i18n="Book author name and lastname">Book author:</h4>
           <p class="content">{{ detail.author }}</p>
         </div>
         <div class="detail__info__item">
-          <h4 class="title">Editorial:</h4>
+          <h4 class="title" i18n="Book editorial">Editorial:</h4>
           <p class="content">{{ detail.editor }}</p>
         </div>
         <div class="detail__info__item">
-          <h4 class="title">Año de publicación:</h4>
+          <h4 class="title" i18n="Book publication year">Publication year:</h4>
           <p class="content">{{ detail.year }}</p>
         </div>
       </div>

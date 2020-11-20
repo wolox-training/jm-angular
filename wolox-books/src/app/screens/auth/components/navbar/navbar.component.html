@@ -5,7 +5,7 @@
       <a class="shopping-cart" (click)="openModal()">
         <span class="shopping-cart__counter" *ngIf="cartItems">{{ cartItems }}</span>
       </a>
-      <a class="auth" (click)="userService.logout()" *ngIf="isLoggedIn | async">Logout</a>
+      <a class="auth" (click)="userService.logout()" *ngIf="isLoggedIn | async" i18n>Logout</a>
     </div>
   </nav>
 </header>

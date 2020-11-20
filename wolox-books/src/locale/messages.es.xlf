@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+        <target>Cerrar Sesión</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/screens/auth/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cda31dbd724cf5f4fa7a4274d9120651490c8a8c" datatype="html">
+        <source>Back</source>
+        <target>Atrás</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/screens/auth/screens/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Go back</note>
+      </trans-unit>
+      <trans-unit id="3c7daacec3dd09b38f1b0a5b74e48eb3990867d8" datatype="html">
+        <source>Book author:</source>
+        <target>Autor del libro:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/screens/auth/screens/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Book author name and lastname</note>
+      </trans-unit>
+      <trans-unit id="50c8614e030fc2b39f1c57d4aef87f929687df66" datatype="html">
+        <source>Editorial:</source>
+        <target>Editorial:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/screens/auth/screens/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Book editorial</note>
+      </trans-unit>
+      <trans-unit id="fe69f8c7122c92c63d5dd98feaf89e89b187be41" datatype="html">
+        <source>Publication year:</source>
+        <target>Año de publicación:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/screens/auth/screens/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Book publication year</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

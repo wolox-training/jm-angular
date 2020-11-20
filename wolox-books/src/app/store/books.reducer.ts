@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { IBookShoppingCart, IBook } from './../models/book.interface';
 import * as BooksActions from './books.actions';
 
-export const booksReducer = (state: IBookShoppingCart[] = [], action: BooksActions.Actions) => {
+export function booksReducer(state: IBookShoppingCart[] = [], action: BooksActions.Actions) {
   switch (action.type) {
     case BooksActions.ADD_BOOK:
       return [...state, action.payload];
@@ -13,4 +13,4 @@ export const booksReducer = (state: IBookShoppingCart[] = [], action: BooksActio
     default:
       return state;
   }
-};
+}
