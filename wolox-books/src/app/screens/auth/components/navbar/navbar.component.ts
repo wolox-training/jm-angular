@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store';
@@ -10,8 +10,9 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   isLoggedIn: Observable<boolean>;
+  cartItemsSubscription: Subscription;
   cartItems: number;
 
   constructor(
@@ -25,6 +26,9 @@ export class NavbarComponent implements OnInit {
     this.store.select('books').subscribe((items) => {
       this.cartItems = items?.length;
     });
+  }
+  ngOnDestroy(): void {
+    this.cartItemsSubscription.unsubscribe();
   }
 
   openModal(): void {
