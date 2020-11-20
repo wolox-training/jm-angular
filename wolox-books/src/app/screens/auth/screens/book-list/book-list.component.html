@@ -5,25 +5,24 @@
       type="text"
       class="search-bar__input"
       placeholder="Buscar por titulo del libro..."
-      (keyup)="onKey(searchBar.value)"
+      [(ngModel)]="searchTitle"
     />
     <img src="assets/search-icon.svg" alt="search icon" class="search-bar__icon" />
   </div>
 
   <div class="book-list">
-    <a class="book-link" *ngFor="let book of books | searchPipe: searchTitle; trackBy: trackBook">
+    <a
+      [routerLink]="['/books', book.id]"
+      class="book-link"
+      *ngFor="let book of books | searchPipe: searchTitle; trackBy: trackBook"
+    >
       <div class="book">
-        <img
-          [src]="book.image_url"
-          alt="book cover"
-          class="book__cover"
-          (click)="openDetail(book.id)"
-        />
-        <div class="book__info" (click)="openDetail(book.id)">
+        <img [src]="book.image_url" alt="book cover" class="book__cover" />
+        <div class="book__info">
           <h3 class="book__info__title">{{ book.title }}</h3>
           <h4 class="book__info__author">{{ book.author }}</h4>
         </div>
-        <div class="book__plus" (click)="addToCart(book.title, book.author, book.id)"></div>
+        <button class="book__plus" (click)="addToCart(book.title, book.author, book.id)"></button>
       </div>
     </a>
   </div>

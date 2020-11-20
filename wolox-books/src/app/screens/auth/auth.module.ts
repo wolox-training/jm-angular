@@ -7,6 +7,7 @@ import { SearchPipe } from 'src/app/pipes/search.pipe';
 import { BookDetailComponent } from './screens/book-detail/book-detail.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,6 @@ import { ModalComponent } from './components/modal/modal.component';
     BookDetailComponent,
     ModalComponent,
   ],
-  imports: [CommonModule, AuthRoutingModule],
+  imports: [CommonModule, AuthRoutingModule, FormsModule],
 })
 export class AuthModule {}
