@@ -2,9 +2,9 @@
   <nav class="nav__content">
     <img src="assets/LogoWolox.png" alt="Wolox logo" class="nav__content__logo" />
     <div class="nav__content__right">
-      <a class="shopping-cart" (click)="openModal()">
+      <button class="shopping-cart" (click)="openModal()">
         <span class="shopping-cart__counter" *ngIf="cartItems">{{ cartItems }}</span>
-      </a>
+      </button>
       <a class="auth" (click)="userService.logout()" *ngIf="isLoggedIn | async">Logout</a>
     </div>
   </nav>

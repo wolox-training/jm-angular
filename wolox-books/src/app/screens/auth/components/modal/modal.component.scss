@@ -7,10 +7,11 @@
   flex-direction: column;
   left: 25%;
   max-height: 900px;
+  max-width: 900px;
   padding: 40px;
   position: fixed;
   top: 25%;
-  width: 900px;
+  width: 100%;
   z-index: 2;
 
   &__header {
@@ -24,6 +25,7 @@
     }
 
     &__close {
+      display: flex;
       height: 30px;
       width: 30px;
 
@@ -55,6 +57,7 @@
     }
 
     &__delete {
+      display: flex;
       height: 30px;
       width: 30px;
 
