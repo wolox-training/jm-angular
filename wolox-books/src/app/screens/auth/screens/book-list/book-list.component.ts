@@ -33,10 +33,6 @@ export class BookListComponent implements OnInit {
     this.searchTitle = text;
   }
 
-  openDetail(id: number): void {
-    this.router.navigate(['books/' + id]);
-  }
-
   trackBook(book: IBook): number | undefined {
     return book ? book.id : undefined;
   }
