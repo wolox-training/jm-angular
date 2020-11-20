@@ -34,12 +34,6 @@
         margin-right: 40px;
         position: relative;
 
-        &::before {
-          background: url('/assets/shopping-cart.png') center/cover;
-          content: '';
-          height: 28px;
-          width: 28px;
-        }
         &__counter {
           align-items: center;
           background-color: $light-blue;
@@ -53,6 +47,10 @@
           right: -8px;
           top: -8px;
           width: 18px;
+        }
+
+        &__image {
+          max-width: 28px;
         }
       }
     }
