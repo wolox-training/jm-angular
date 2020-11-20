@@ -13,7 +13,7 @@ import * as BooksActions from '../../../../store/books.actions';
 })
 export class BookListComponent implements OnInit {
   books: Array<IBook>;
-  searchTitle = '';
+  searchTitle: string = '';
 
   constructor(
     private booksService: BooksService,
@@ -34,14 +34,6 @@ export class BookListComponent implements OnInit {
       title,
     };
     this.store.dispatch(new BooksActions.AddBook(newCartBook));
-  }
-
-  onKey(text: string): void {
-    this.searchTitle = text;
-  }
-
-  openDetail(id: number): void {
-    this.router.navigate(['books/' + id]);
   }
 
   trackBook(book: IBook): number | undefined {
