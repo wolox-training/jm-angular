@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { IBookShoppingCart } from 'src/app/models/book.interface';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import * as BooksActions from '../../../../store/books.actions';
@@ -30,7 +30,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.shoppingCart.openModal(false);
   }
 
-  delBook(bookId: number): void {
+  deleteBook(bookId: number): void {
     this.store.dispatch(new BooksActions.RemoveBook(bookId));
   }
 }

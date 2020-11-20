@@ -1,13 +1,13 @@
 <div class="modal">
   <div class="modal__header">
     <h2 class="modal__header__title">Tu carrito de compras</h2>
-    <a class="modal__header__close" (click)="closeModal()"></a>
+    <button class="modal__header__close" (click)="closeModal()"></button>
   </div>
   <ng-template [ngIf]="cartBooks.length" [ngIfElse]="emptyCart">
     <div class="modal__book-list">
       <div class="modal__book" *ngFor="let cartBook of cartBooks">
         <h3 class="modal__book__title">{{ cartBook.title }} - {{ cartBook.author }}</h3>
-        <a class="modal__book__delete" (click)="delBook(cartBook.id)"></a>
+        <button class="modal__book__delete" (click)="deleteBook(cartBook.id)"></button>
       </div>
     </div>
   </ng-template>
