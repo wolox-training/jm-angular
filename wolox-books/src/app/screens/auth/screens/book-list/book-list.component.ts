@@ -9,7 +9,7 @@ import { IBook } from 'src/app/models/book.interface';
 })
 export class BookListComponent implements OnInit {
   books: Array<IBook>;
-  searchTitle = '';
+  searchTitle: string = '';
 
   constructor(private booksService: BooksService) {}
 
@@ -17,10 +17,6 @@ export class BookListComponent implements OnInit {
     this.booksService.getBooks().subscribe((response) => {
       this.books = response.page;
     });
-  }
-
-  onKey(text: string): void {
-    this.searchTitle = text;
   }
 
   trackBook(book: IBook): number | undefined {

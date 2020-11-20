@@ -5,7 +5,7 @@
       type="text"
       class="search-bar__input"
       placeholder="Buscar por titulo del libro..."
-      (keyup)="onKey(searchBar.value)"
+      [(ngModel)]="searchTitle"
     />
     <img src="assets/search-icon.svg" alt="search icon" class="search-bar__icon" />
   </div>
