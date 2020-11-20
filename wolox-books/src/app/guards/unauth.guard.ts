@@ -18,13 +18,4 @@ export class UnAuthGuard implements CanActivate, CanLoad {
     if (hasToken) this.router.navigate(['/books']);
     return !hasToken;
   }
-  canLoad(): boolean {
-    const hasToken = this.userService.hasToken();
-    if (hasToken) {
-      this.router.navigate(['/books']);
-      return false;
-    } else {
-      return true;
-    }
-  }
 }
