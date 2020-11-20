@@ -19,3 +19,9 @@ export interface IUserCredentials {
   email: string;
   password: string;
 }
+
+export interface IRequestCredentials {
+  token: string;
+  client: string;
+  uid: string;
+}

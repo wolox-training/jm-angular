@@ -1,74 +1,11 @@
 <div class="container">
   <div class="book-list">
-    <a href="detail-book.html" class="book-link">
+    <a href="detail-book.html" class="book-link" *ngFor="let book of books; trackBy: trackBook">
       <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
+        <img [src]="book.image_url" alt="book cover" class="book__cover" />
         <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
-        </div>
-      </div>
-    </a>
-    <a href="detail-book.html" class="book-link">
-      <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
-        <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
-        </div>
-      </div>
-    </a>
-    <a href="detail-book.html" class="book-link">
-      <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
-        <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
-        </div>
-      </div>
-    </a>
-    <a href="detail-book.html" class="book-link">
-      <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
-        <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
-        </div>
-      </div>
-    </a>
-    <a href="detail-book.html" class="book-link">
-      <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
-        <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
-        </div>
-      </div>
-    </a>
-    <a href="detail-book.html" class="book-link">
-      <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
-        <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
-        </div>
-      </div>
-    </a>
-    <a href="detail-book.html" class="book-link">
-      <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
-        <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
-        </div>
-      </div>
-    </a>
-    <a href="detail-book.html" class="book-link">
-      <div class="book">
-        <img src="assets/book-cover.png" alt="book cover" class="book__cover" />
-        <div class="book__info">
-          <h3 class="book__info__title">Título del libro</h3>
-          <h4 class="book__info__author">Autor del libro</h4>
+          <h3 class="book__info__title">{{ book.title }}</h3>
+          <h4 class="book__info__author">{{ book.author }}</h4>
         </div>
       </div>
     </a>
