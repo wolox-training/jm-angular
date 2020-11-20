@@ -11,7 +11,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class BookListComponent implements OnInit {
   books: Array<IBook>;
-  searchTitle = '';
+  searchTitle: string = '';
 
   constructor(
     private booksService: BooksService,
@@ -27,10 +27,6 @@ export class BookListComponent implements OnInit {
 
   addToCart(book: IBook): void {
     this.shoppingCart.addCartItem(book);
-  }
-
-  onKey(text: string): void {
-    this.searchTitle = text;
   }
 
   trackBook(book: IBook): number | undefined {
