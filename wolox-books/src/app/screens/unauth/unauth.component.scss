@@ -1,0 +1,74 @@
+@import '../../../scss/_colors.scss';
+@import '../../../scss/_mixins.scss';
+@import '../../../scss/_styles.scss';
+@import '../../../scss/_variables.scss';
+
+.container {
+  padding-top: 100px;
+}
+
+.login,
+.register {
+  @include light-blue-border;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 400px;
+  padding: 30px;
+  width: 100%;
+
+  &__button {
+    @include form-button(transparent, $green, $form-border-radius, $green, 20px, 40px, inherit);
+    margin: 20px 0;
+
+    &.fill {
+      background-color: $green;
+      color: $white;
+      &:disabled {
+        background-color: $dark-grey;
+        border-color: $dark-grey;
+        color: $soft-grey;
+      }
+      &::before {
+        border-bottom: 2px solid $dark-grey;
+        bottom: -25px;
+        content: '';
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__error {
+      position: relative;
+      margin-bottom: 15px;
+      color: $red;
+    }
+    &__input {
+      border-radius: $form-border-radius;
+      height: 30px;
+      margin: 5px 0 20px 0;
+
+      &.invalid {
+        margin-bottom: 5px;
+      }
+    }
+
+    &__label {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 40px;
+    max-width: 350px;
+    width: 100%;
+  }
+}

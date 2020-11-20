@@ -1,0 +1,28 @@
+@mixin card-shadow {
+  background-color: $white;
+  box-shadow: 5px 5px 7px 1px $soft-black;
+}
+
+@mixin form-button($bg-color, $border-color, $border-radius, $color, $font-size, $height, $width) {
+  align-items: center;
+  background-color: $bg-color;
+  border: 2px solid $border-color;
+  border-radius: $border-radius;
+  color: $color;
+  display: flex;
+  font-size: $font-size;
+  height: $height;
+  justify-content: center;
+  position: relative;
+  width: $width;
+}
+
+@mixin light-blue-border {
+  border-top: 10px solid $light-blue;
+}
+
+@mixin badge-position($size, $top, $left) {
+  background-size: $size;
+  left: $left;
+  top: $top;
+}

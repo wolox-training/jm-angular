@@ -1,0 +1,25 @@
+.nav {
+  @include card-shadow;
+  @include light-blue-border;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  &__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: $xlg;
+    padding: 0 30px;
+
+    &__auth {
+      font-size: 20px;
+    }
+
+    &__logo {
+      width: 20%;
+    }
+  }
+}

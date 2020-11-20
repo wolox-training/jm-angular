@@ -1,0 +1,42 @@
+.book {
+  @include card-shadow;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px 20px 32px;
+
+  &-link {
+    max-width: calc(320px - 40px);
+    width: 100%;
+
+    &:nth-child(n) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px 0;
+    max-width: $xlg;
+  }
+
+  &__cover {
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &__author {
+      @extend %content;
+    }
+
+    &__title {
+      @extend %title;
+      line-height: 2;
+    }
+  }
+}

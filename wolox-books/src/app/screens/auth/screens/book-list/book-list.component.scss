@@ -1,0 +1,52 @@
+@import '../../../../../scss/variables';
+@import '../../../../../scss/mixins';
+@import '../../../../../scss/global-classes';
+
+.book {
+  @include card-shadow;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px 20px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &-link {
+    max-width: 280px;
+    width: 100%;
+
+    &:nth-child(n) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px 0;
+    max-width: $desktop-width;
+  }
+
+  &__cover {
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &__author {
+      @extend %content;
+    }
+
+    &__title {
+      @extend %title;
+      font-size: 20px;
+      line-height: 2;
+    }
+  }
+}
