@@ -23,7 +23,7 @@ export class ModalComponent implements OnInit {
     this.shoppingCart.openModal(false);
   }
 
-  delBook(bookId: number): void {
+  deleteBook(bookId: number): void {
     this.store.dispatch(new BooksActions.RemoveBook(bookId));
   }
 }
