@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
 import { IBook } from 'src/app/models/book.interface';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-book-list',
@@ -12,12 +13,20 @@ export class BookListComponent implements OnInit {
   books: Array<IBook>;
   searchTitle: string = '';
 
-  constructor(private booksService: BooksService, private router: Router) {}
+  constructor(
+    private booksService: BooksService,
+    private router: Router,
+    private shoppingCart: ShoppingCartService
+  ) {}
 
   ngOnInit(): void {
     this.booksService.getBooks().subscribe((response) => {
       this.books = response;
     });
+  }
+
+  addToCart(book: IBook): void {
+    this.shoppingCart.addCartItem(book);
   }
 
   trackBook(book: IBook): number | undefined {

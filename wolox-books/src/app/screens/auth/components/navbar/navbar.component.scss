@@ -17,12 +17,42 @@
     max-width: $desktop-width;
     padding: 0 30px;
 
-    &__auth {
-      font-size: 20px;
-    }
-
     &__logo {
       width: 20%;
+    }
+
+    &__right {
+      align-items: center;
+      display: inline-flex;
+
+      .auth {
+        font-size: 20px;
+      }
+
+      .shopping-cart {
+        display: flex;
+        margin-right: 40px;
+        position: relative;
+
+        &__counter {
+          align-items: center;
+          background-color: $light-blue;
+          border-radius: 50%;
+          color: $white;
+          display: flex;
+          font-size: 12px;
+          height: 18px;
+          justify-content: center;
+          position: absolute;
+          right: -8px;
+          top: -8px;
+          width: 18px;
+        }
+
+        &__image {
+          max-width: 28px;
+        }
+      }
     }
   }
 }
