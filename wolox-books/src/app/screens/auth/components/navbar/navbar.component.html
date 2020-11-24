@@ -6,7 +6,7 @@
         <img src="assets/shopping-cart.png" class="shopping-cart__image" />
         <span class="shopping-cart__counter" *ngIf="cartItems">{{ cartItems }}</span>
       </button>
-      <button class="auth" (click)="userService.logout()" *ngIf="isLoggedIn | async">Logout</button>
+    <button class="auth" (click)="userService.logout()" *ngIf="isLoggedIn | async">Logout</button>
     </div>
   </nav>
 </header>
