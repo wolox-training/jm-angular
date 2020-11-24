@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
 import { IBook, IBookShoppingCart } from 'src/app/models/book.interface';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import * as BooksActions from '../../../../store/books.actions';
@@ -15,11 +14,7 @@ export class BookListComponent implements OnInit {
   books: Array<IBook>;
   searchTitle: string = '';
 
-  constructor(
-    private booksService: BooksService,
-    private router: Router,
-    private store: Store<AppState>
-  ) {}
+  constructor(private booksService: BooksService, private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.booksService.getBooks().subscribe((response) => {

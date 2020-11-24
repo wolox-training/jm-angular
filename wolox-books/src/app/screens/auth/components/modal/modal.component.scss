@@ -70,6 +70,28 @@
       }
     }
   }
+  &-empty {
+    &__vector {
+      margin: 40px 0 60px;
+      width: 400px;
+    }
+
+    &__primary-text {
+      font-size: 35px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    &__secondary-text {
+      font-size: 25px;
+    }
+
+    &__vector,
+    &__primary-text,
+    &__secondary-text {
+      align-self: center;
+    }
+  }
 }
 
 .shadow {
