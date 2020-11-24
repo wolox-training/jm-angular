@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.isLoggedIn = this.userService.isLoggedIn;
-    this.store.select('books').subscribe((items) => {
+    this.cartItemsSubscription = this.store.select('books').subscribe((items) => {
       this.cartItems = items?.length;
     });
   }
